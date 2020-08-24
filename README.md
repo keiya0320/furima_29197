@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :item_purchase
+- has_one :item_purchase
 - has_many :comments
 - has_one :purchase_info
 - belongs_to_active_hash :category
@@ -56,7 +56,8 @@
 ### Association
 
 - belongs_to :user
-- has_one :product
+- belongs_to :product
+- has_one :purchase_info
 
 
 ## comments テーブル
@@ -86,3 +87,4 @@
 ### Association
 
 - has_one_active_hash :prefectures
+- belongs_to :item_purchase
