@@ -10,12 +10,11 @@
 | family_name | string | null: false |
 | read_first  | string | null: false |
 | read_family | string | null: false |
-| birth       | integar| null: false |
+| birth       | date   | null: false |
 
 ### Association
 
-- has_many :product_users
-- has_many :products, through: product_users
+- has_many :products
 - has_many :comments
 
 ## products テーブル
@@ -33,20 +32,9 @@
 
 ### Association
 
-- has_many :product_users
-- has_many :users, through: product_users
-- has_many :comments
-
-## product_users テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :product
 - belongs_to :user
+- has_many :comments
+- has_one :purchase_info
 
 ## comments テーブル
 | Column  | Type       | Options                        |
@@ -59,3 +47,21 @@
 
 - belongs_to :product
 - belongs_to :user
+
+## purchase_info テーブル
+
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| card_data     | integar | null: false |
+| card_deadline | integar | null: false |
+| security_code | integar | null: false |
+| postal_code   | integar | null: false |
+| prefectures   | string  | null: false |
+| city          | string  | null: false |
+| address       | string  | null: false |
+| building_name | string  |             |
+| phone_number  | integar | null: false |
+
+### Association
+
+- belongs_to :product
