@@ -15,7 +15,7 @@
 ### Association
 
 - has_many :products
-- has_many :item_purchase
+- has_many :item_purchases
 - has_many :comments
 
 ## products テーブル
@@ -36,6 +36,7 @@
 ### Association
 
 - belongs_to :user
+- belongs_to :item_purchase
 - has_many :comments
 - has_one :purchase_info
 - belongs_to_active_hash :category
@@ -49,13 +50,13 @@
 ## item_purchases テーブル
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
-| purchase_info | integer | null: false, foreign_key: true |
+| product       | integer | null: false, foreign_key: true |
 | user          | integer | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchase_info
+- has_one :product
 
 
 ## comments テーブル
@@ -81,8 +82,7 @@
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
 | item_purchase | integer    | null: false, foreign_key: true |
+
 ### Association
 
-- belongs_to :item_purchase
-- belongs_to :product
 - has_one_active_hash :prefectures
