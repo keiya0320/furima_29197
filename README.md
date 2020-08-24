@@ -38,7 +38,6 @@
 - belongs_to :user
 - has_one :item_purchase
 - has_many :comments
-- has_one :purchase_info
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :postage_type
@@ -52,12 +51,13 @@
 | ------------- | ------- | ------------------------------ |
 | product       | integer | null: false, foreign_key: true |
 | user          | integer | null: false, foreign_key: true |
+| purchase_info | integer | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
-- has_one :purchase_info
+- belongs_to :purchase_info
 
 
 ## comments テーブル
@@ -87,4 +87,4 @@
 ### Association
 
 - has_one_active_hash :prefectures
-- belongs_to :item_purchase
+- has_one :item_purchase
