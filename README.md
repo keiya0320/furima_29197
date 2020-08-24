@@ -18,28 +18,33 @@
 - has_many :comments
 
 ## products テーブル
-| Column              | Type    | Options     |
-| ------------------- | ------- | ----------- |
-| product_photo       | text    | null: false |
-| product_name        | string  | null: false |
-| explanation         | text    | null: false |
-| category            | string  | null: false |
-| condition           | string  | null: false |
-| delivery_fee        | string  | null: false |
-| shipping_origin     | string  | null: false |
-| days_until_shipping | string  | null: false |
-| value               | integar | null: false |
+| Column              | Type    | Options                        |
+| ------------------- | ------- | ------------------------------ |
+| product_photo       | text    | null: false                    |
+| product_name        | string  | null: false                    |
+| explanation         | text    | null: false                    |
+| category            | string  | null: false, foreign_key: true |
+| condition           | string  | null: false, foreign_key: true |
+| postage_type        | string  | null: false, foreign_key: true |
+| prefectures         | string  | null: false, foreign_key: true |
+| preparation_days    | string  | null: false, foreign_key: true |
+| value               | integar | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - has_many :comments
 - has_one :purchase_info
+- belongs_to_active_hash :category
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :postage_type
+- belongs_to_active_hash :prefectures
+- belongs_to_active_hash :preparation_days
 
 ## comments テーブル
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| content | string     |                                |
+| content | string     | null: false                     |
 | user    | references | null: false, foreign_key: true |
 | product | references | null: false, foreign_key: true |
 
@@ -65,3 +70,4 @@
 ### Association
 
 - belongs_to :product
+- has_one_active_hash :prefectures
