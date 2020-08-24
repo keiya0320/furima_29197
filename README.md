@@ -23,16 +23,16 @@
 ## products テーブル
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| product_photo       | text       | null: false                    |
-| product_name        | string     | null: false                    |
+| photo               | text       | null: false                    |
+| name                | string     | null: false                    |
 | explanation         | text       | null: false                    |
-| category            | references | null: false, foreign_key: true |
-| condition           | references | null: false, foreign_key: true |
-| postage_type        | references | null: false, foreign_key: true |
-| prefectures         | references | null: false, foreign_key: true |
-| preparation_days    | references | null: false, foreign_key: true |
+| category            | integer    | null: false, foreign_key: true |
+| condition           | integer    | null: false, foreign_key: true |
+| postage_type        | integer    | null: false, foreign_key: true |
+| prefectures         | integer    | null: false, foreign_key: true |
+| preparation_days    | integer    | null: false, foreign_key: true |
 | value               | integar    | null: false                    |
-| seller_id           | references | null: false, foreign_key: true |
+| seller              | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -49,11 +49,11 @@
 - belongs_to :seller, class_name: "User"
 
 
-## user_products テーブル
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user_id    | references | null: false, foreign_key: true |
-| product_id | references | null: false, foreign_key: true |
+## item_purchases テーブル
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| user    | integer | null: false, foreign_key: true |
+| product | integer | null: false, foreign_key: true |
 
 ### Association
 
@@ -65,8 +65,8 @@
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     | null: false                    |
-| user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
+| user    | integer    | null: false, foreign_key: true |
+| product | integer    | null: false, foreign_key: true |
 
 ### Association
 
@@ -77,15 +77,12 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| card_data     | integar    | null: false                    |
-| card_deadline | integar    | null: false                    |
-| security_code | integar    | null: false                    |
-| postal_code   | integar    | null: false                    |
-| prefectures   | references | null: false, foreign_key: true |
+| postal_code   | string     | null: false                    |
+| prefectures   | integer    | null: false, foreign_key: true |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
-| phone_number  | integar    | null: false                    |
+| phone_number  | string     | null: false                    |
 
 ### Association
 
