@@ -37,7 +37,6 @@
 
 - belongs_to :user
 - has_many :comments
-<!-- - has_many :item_purchase -->
 - has_one :purchase_info
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
@@ -56,8 +55,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase_info
-<!-- - has_one :product -->
+- has_one :purchase_info
 
 
 ## comments テーブル
@@ -85,7 +83,6 @@
 | item_purchase | integer    | null: false, foreign_key: true |
 ### Association
 
-<!-- - belongs_to :item_purchase -->
-- has_many :item_purchase
-- has_one :purchase_info
+- belongs_to :item_purchase
+- belongs_to :product
 - has_one_active_hash :prefectures
