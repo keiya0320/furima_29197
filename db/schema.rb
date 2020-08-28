@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_025053) do
     t.integer "category", null: false
     t.integer "condition", null: false
     t.integer "postage_type", null: false
-    t.integer "prefectures", null: false
+    t.integer "prefecture", null: false
     t.integer "preparation_days", null: false
     t.integer "value", null: false
     t.bigint "user_id"
