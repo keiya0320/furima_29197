@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, presence: true
   validates :password, length: { minimum: 6 }
-  VALID_PASSWORD_REGIX = /\A[a-z0-9]+\z/i.freeze
+  VALID_PASSWORD_REGIX = /\A[a-zA-Z0-9]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGIX }
   validates :family_name, presence: true
   validates :first_name, presence: true
