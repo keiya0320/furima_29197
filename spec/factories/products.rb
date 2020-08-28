@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    photo { Faker::Internet.domain_name(subdomain: true, domain: "example") }
+    photo { Faker::Internet.domain_name(subdomain: true, domain: 'example') }
     name { Faker::Types.rb_string }
     explanation { Faker::Types.rb_string }
     category { Faker::Number.between(from: 1, to: 11) }
@@ -11,4 +11,3 @@ FactoryBot.define do
     value { Faker::Number.number(digits: 5) }
   end
 end
-
