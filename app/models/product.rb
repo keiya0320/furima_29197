@@ -1,5 +1,10 @@
 class Product < ApplicationRecord
-  validates :photo, presence: true
+
+  has_one_attached :image
+
+
+
+
   validates :name, presence: true
   validates :explanation, presence: true
   validates :category, presence: true
