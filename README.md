@@ -21,7 +21,7 @@
 ## products テーブル
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
-| photo               | text       | null: false |
+| image               | text       | null: false |
 | name                | string     | null: false |
 | explanation         | text       | null: false |
 | category            | integer    | null: false |
@@ -31,7 +31,7 @@
 | preparation_days    | integer    | null: false |
 | value               | integar    | null: false |
 | user                | references | null: false | 
-
+| item_purchase       | references | null: false | 
 
 ### Association
 

@@ -7,9 +7,9 @@ RSpec.describe Product, type: :model do
     end
 
     it '画像は1枚必須であること' do
-      @product.photo = nil
+      @product.image = nil
       @product.valid?
-      expect(@product.errors.full_messages).to include("Photo can't be blank")
+      expect(@product.errors.full_messages).to include("Image can't be blank")
     end
     it '商品名が必須であること' do
       @product.name = nil
