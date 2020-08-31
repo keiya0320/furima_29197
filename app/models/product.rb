@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-
   has_one_attached :image
   belongs_to :user
   has_one :item_purchase
@@ -9,9 +8,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :postage_type
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :preparation_days
-
-
-
 
   validates :image, presence: true
   validates :name, presence: true
