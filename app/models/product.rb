@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
 
 
-
+  validates :image, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :category, presence: true
