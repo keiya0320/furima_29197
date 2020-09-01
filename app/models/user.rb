@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :products
-  has_many :item_purchase
+  has_many :item_purchase, foreign_key: :product_id, dependent: :destroy
 
   validates :nickname, presence: true
   validates :email, presence: true

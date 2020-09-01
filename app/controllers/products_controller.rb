@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :definite, only: [:edit, :update, :show]
+  before_action :definite, only: [:edit, :update, :show, :destroy]
 
   def index
     @products = Product.all.order('created_at DESC')
@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to root_path if @product.destroy
   end
 
   def edit
