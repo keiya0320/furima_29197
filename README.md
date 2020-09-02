@@ -15,7 +15,7 @@
 ### Association
 
 - has_many :products
-- has_many :item_purchases
+- has_many :order_info
 - has_many :comments
 
 ## products テーブル
@@ -31,12 +31,12 @@
 | preparation_days    | integer    | null: false |
 | value               | integar    | null: false |
 | user                | references | null: false | 
-| item_purchase       | references | null: false | 
+| order_info          | references | null: false | 
 
 ### Association
 
 - belongs_to :user
-- has_one :item_purchase
+- has_one :order_info
 - has_many :comments
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
@@ -57,7 +57,7 @@
 
 - belongs_to :user
 - belongs_to :product
-- belongs_to :purchase_info
+- belongs_to :order_info
 
 
 ## comments テーブル
@@ -72,7 +72,7 @@
 - belongs_to :product
 - belongs_to :user
 
-## purchase_info テーブル
+## order_info テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -82,9 +82,12 @@
 | address       | string     | null: false                    |
 | building_name | string     |                                |
 | phone_number  | string     | null: false                    |
-| item_purchase | integer    | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| product       | references | null: false, foreign_key: true |
+
 
 ### Association
 
 - has_one_active_hash :prefectures
-- has_one :item_purchase
+- belongs_to :user
+- belongs_to :product
