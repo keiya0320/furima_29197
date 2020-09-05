@@ -4,8 +4,9 @@ class CreateOrderInfos < ActiveRecord::Migration[6.0]
       t.string :postal_code, default: "", null: false
       t.integer :prefecture_id, null:false
       t.string :city, default: ""
-      t.string :house_number, default: ""
+      t.string :address, default: ""
       t.string :building_name, default: ""
+      t.string :phone_number, default: ""
       t.references :user, null: false, foreign_key: true
       t.references :product, null: false, foreign_key: true
 
