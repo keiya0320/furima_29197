@@ -41,6 +41,13 @@ RSpec.describe OrderInfo, type: :model do
       @order.valid?
       expect(@order.errors.full_messages).to include("Phone number is invalid")
     end
+    it '郵便番号は3桁-4桁であること' do
+    @order.postal_code = '0000-000'
+    @order.valid?
+    expect(@order.errors.full_messages).to include("Postal code is invalid")
+    end
+
+
   end
 
 

@@ -20,9 +20,6 @@ const pay = () => {
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
-      // if (status != 200) {
-      //   document.write("正しいカード情報ではありません")
-      // }
 
       if (status != 200) {
         alert('正しいカード情報ではありません')

@@ -2,16 +2,14 @@ class OrdersController < ApplicationController
   before_action :move_to_session
   before_action :move_to_root
   before_action :sold_to_root
-
+  before_action :definite, only: [:index, :create]
 
   def index
     @order = OrderInfo.new
-    @product = Product.find(params[:product_id])
   end
 
   def create
     @order = OrderInfo.new(order_params)
-    @product = Product.find(params[:product_id])
     if @order.valid?
       pay_item
       @order.save
@@ -38,7 +36,9 @@ class OrdersController < ApplicationController
     )
   end
 
-  private
+  def definite
+    @product = Product.find(params[:product_id])
+  end
 
   def move_to_session
     redirect_to new_user_session_path unless user_signed_in?
