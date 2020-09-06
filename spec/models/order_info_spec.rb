@@ -34,21 +34,17 @@ RSpec.describe OrderInfo, type: :model do
     it '郵便番号にはハイフンが必要であること' do
       @order.postal_code = '0000000'
       @order.valid?
-      expect(@order.errors.full_messages).to include("Postal code is invalid")
+      expect(@order.errors.full_messages).to include('Postal code is invalid')
     end
     it '電話番号にはハイフンは不要で、11桁以内であること' do
       @order.phone_number = '000-0000-0000'
       @order.valid?
-      expect(@order.errors.full_messages).to include("Phone number is invalid")
+      expect(@order.errors.full_messages).to include('Phone number is invalid')
     end
     it '郵便番号は3桁-4桁であること' do
-    @order.postal_code = '0000-000'
-    @order.valid?
-    expect(@order.errors.full_messages).to include("Postal code is invalid")
+      @order.postal_code = '0000-000'
+      @order.valid?
+      expect(@order.errors.full_messages).to include('Postal code is invalid')
     end
-
-
   end
-
-
 end

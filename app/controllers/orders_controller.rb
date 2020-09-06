@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
@@ -28,11 +28,11 @@ class OrdersController < ApplicationController
 
   def pay_item
     @product = Product.find(params[:product_id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @product.value,
       card: params[:token],
-      currency:'jpy'
+      currency: 'jpy'
     )
   end
 
@@ -46,18 +46,11 @@ class OrdersController < ApplicationController
 
   def move_to_root
     @product = Product.find(params[:product_id])
-    if @product.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if @product.user_id == current_user.id
   end
 
   def sold_to_root
     @product = Product.find(params[:product_id])
-    if @product.order_info.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @product.order_info.present?
   end
-
-
-
 end
