@@ -2,6 +2,9 @@ class OrderInfo < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  attr_accessor :token
+
+  validates :token, presence: true
   validates :postal_code, presence: true
   validates :prefecture_id, presence: true
   validates :city, presence: true
